@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+</head>
+<body>
+    <script>
+        function computerPlay(){
+            const options = ['Rock', 'Paper', 'Scissors'];
+            return options[Math.floor(Math.random()*3)];
+        }
+        function playGame(playerSelection, computerSelection = computerPlay()){
+            const playerLower = playerSelection.toLowerCase()
+            playerSelection = playerSelection.charAt(0).toUpperCase() + playerLower.substring(1);
+
+            if(playerSelection === computerSelection){
+                return `${playerSelection} vs. ${computerSelection}: Tied, try again!`
+            }
+            if(playerSelection === 'Rock'){
+                let outcome = (computerSelection === 'Paper') ? 'You Lose! Paper beats Rock' : 'You Win! Rock beats Scissors';                
+                return outcome;                               
+            } 
+            if( playerSelection === 'Paper'){
+                let outcome = (computerSelection === 'Scissors') ? 'You Lose! Scissors beats Paper' : 'You Win! Paper beats Rock';
+                return outcome;  
+            }
+            if( playerSelection === 'Scissors'){
+                let outcome = (computerSelection === 'Rock') ? 'You Lose! Rock beats Scissors' : 'You Win! Scissors beats Paper';
+                return outcome;  
+            }
+        }
+
+    </script>
+</body>
+</html>
